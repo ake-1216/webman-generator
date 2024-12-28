@@ -1,0 +1,41 @@
+{
+    "name": "ake/generator",
+    "description": "A CRUD code generator for Webman framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "阿珂",
+            "email": "2454345235@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "workerman/webman-framework": "^1.5",
+        "illuminate/database": "^8.0",
+        "symfony/console": "^5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "symfony/var-dumper": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webman\\Generator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "stable"
+} 

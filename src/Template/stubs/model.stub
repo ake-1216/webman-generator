@@ -1,0 +1,41 @@
+<?php
+
+namespace {{ namespace }};
+
+use support\Model;
+
+class {{ class }} extends Model
+{
+    /**
+     * 关联的数据表
+     */
+    protected $table = '{{ table }}';
+    
+    /**
+     * 可以批量赋值的属性
+     */
+    protected $fillable = [
+{{ fillable }}
+    ];
+    
+    /**
+     * 属性类型转换
+     */
+    protected $casts = [
+{{ casts }}
+    ];
+    
+    /**
+     * 需要自动维护时间戳的字段
+     */
+    protected $dates = [
+{{ dates }}
+    ];
+    
+    /**
+     * 验证规则
+     */
+    protected $rules = [
+{{ rules }}
+    ];
+} 

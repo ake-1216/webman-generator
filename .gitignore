@@ -1,0 +1,39 @@
+# Composer
+/vendor/
+composer.lock
+
+# PHPUnit
+.phpunit.result.cache
+/phpunit.xml
+/coverage/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.log
+*.cache
+*.bak
+*.swp
+*.tmp
+
+# 环境配置
+.env
+.env.*
+!.env.example
+
+# 测试输出
+/tests/output/
+/tests/temp/
+
+# 其他
+*.phar
+.php_cs.cache
+.php-cs-fixer.cache 

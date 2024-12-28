@@ -1,0 +1,69 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ repositoryNamespace }}\{{ repository }};
+use {{ validateNamespace }}\{{ validate }};
+use support\exception\BusinessException;
+
+class {{ class }}
+{
+    protected $repository;
+    protected $validate;
+
+    public function __construct()
+    {
+        $this->repository = new {{ repository }}();
+        $this->validate = new {{ validate }}();
+    }
+
+    /**
+     * 获取列表
+     */
+    public function list(array $params = [])
+    {
+        return $this->repository->list($params);
+    }
+
+    /**
+     * 创建记录
+     */
+    public function create(array $data)
+    {
+        // 验证数据
+        if (!$this->validate->scene('create')->check($data)) {
+            throw new BusinessException($this->validate->getError());
+        }
+
+        return $this->repository->create($data);
+    }
+
+    /**
+     * 更新记录
+     */
+    public function update($id, array $data)
+    {
+        // 验证数据
+        if (!$this->validate->scene('update')->check($data)) {
+            throw new BusinessException($this->validate->getError());
+        }
+
+        return $this->repository->update($id, $data);
+    }
+
+    /**
+     * 删除记录
+     */
+    public function delete($id)
+    {
+        return $this->repository->delete($id);
+    }
+
+    /**
+     * 查找记录
+     */
+    public function find($id)
+    {
+        return $this->repository->find($id);
+    }
+} 

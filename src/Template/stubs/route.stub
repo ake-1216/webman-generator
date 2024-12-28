@@ -1,0 +1,16 @@
+<?php
+
+use Webman\Route;
+
+Route::group('/{{ routePrefix }}', function() {
+    // 列表
+    Route::get('', {{ controller }}::class.'@index');
+    // 创建
+    Route::post('', {{ controller }}::class.'@store');
+    // 更新
+    Route::put('{id}', {{ controller }}::class.'@update');
+    // 删除
+    Route::delete('{id}', {{ controller }}::class.'@destroy');
+    // 查看
+    Route::get('{id}', {{ controller }}::class.'@show');
+}); 

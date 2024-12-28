@@ -1,0 +1,62 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ modelNamespace }}\{{ model }};
+
+class {{ class }}
+{
+    protected $model;
+
+    public function __construct()
+    {
+        $this->model = new {{ model }}();
+    }
+
+    /**
+     * 获取列表
+     */
+    public function list(array $params = [], array $columns = ['*'])
+    {
+        $query = $this->model->newQuery();
+        
+        // 添加查询条件
+{{ queryConditions }}
+        
+        return $query->paginate($params['per_page'] ?? 15, $columns);
+    }
+
+    /**
+     * 创建记录
+     */
+    public function create(array $data)
+    {
+        return $this->model->create($data);
+    }
+
+    /**
+     * 更新记录
+     */
+    public function update($id, array $data)
+    {
+        $model = $this->model->findOrFail($id);
+        $model->update($data);
+        return $model;
+    }
+
+    /**
+     * 删除记录
+     */
+    public function delete($id)
+    {
+        return $this->model->destroy($id);
+    }
+
+    /**
+     * 查找记录
+     */
+    public function find($id, array $columns = ['*'])
+    {
+        return $this->model->findOrFail($id, $columns);
+    }
+} 

@@ -1,0 +1,34 @@
+<?php
+
+namespace {{ namespace }};
+
+use support\validate\Validate;
+
+class {{ class }} extends Validate
+{
+    /**
+     * 验证规则
+     */
+    protected $rule = [
+{{ rules }}
+    ];
+
+    /**
+     * 错误信息
+     */
+    protected $message = [
+{{ messages }}
+    ];
+
+    /**
+     * 验证场景
+     */
+    protected $scene = [
+        'create' => [
+{{ create_fields }}
+        ],
+        'update' => [
+{{ update_fields }}
+        ],
+    ];
+} 
